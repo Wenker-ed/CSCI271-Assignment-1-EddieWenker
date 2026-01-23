@@ -40,27 +40,55 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
         Scanner input = new Scanner(System.in);
         //THERE IS A BUG THAT YOU HAVE TO FIX
         // Read integer A
-        //We are reading in 7 assignments and calculating the average score
-        for (int i = 0; i < 7; i++) 
+        
+        String in = "y";
+        //While loop to continue reading until there are no more inputs
+        while (in.equals("y")) 
         {
-            int Assignment = input.nextInt(); // each assignment score
-            double AssignmentSum = 0; // sum of scores
-            AssignmentSum += Assignment; // add each score to sum
-            double AssignmentAverage = AssignmentSum / 7; // average of scores
+            int AssignmentSum = 0; // sum of scores
+            //We are reading in 7 assignments and calculating the average score
+            for (int i = 0; i < 7; i++) 
+            {
+                int Assignment = input.nextInt(); // each assignment score
+                AssignmentSum += Assignment; // add each score to sum
+            }
+            double AssignmentAverage = (double)AssignmentSum / 7.0; // average of Assignment scores
+
+            int TestSum = 0; // sum of scores
+            for (int i = 0; i < 7; i++) 
+            {
+                int Test = input.nextInt(); // each assignment score
+                TestSum += Test; // add each score to sum
+            }
+            double TestAverage = (double)TestSum / 7.0; // average of Test scores
+            int MidTerm = input.nextInt(); // midterm score
+            int FinalExam = input.nextInt(); // final exam score
+
+            double ExamsAverage = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 70;
+            System.out.println("Exams Average: " + ExamsAverage);
+            double Weight = (ExamsAverage - 60) / 20 * 0.3;
+            double FinalGrade; // Used to calculate final grade
+
+            if (ExamsAverage < 60)
+            {
+                FinalGrade = ExamsAverage;
+                System.out.println("Final Grade: " + FinalGrade);
+            }
+            else if (ExamsAverage >= 60 && ExamsAverage < 80)
+            {
+                FinalGrade = (1 - Weight) * ExamsAverage + Weight * AssignmentAverage;
+                System.out.println("Final Grade: " + FinalGrade);
+            }
+            else 
+            {
+                FinalGrade = 0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage + 0.3 * AssignmentAverage;
+                System.out.println("Final Grade: " + FinalGrade);
+            }
+            
+
+            System.out.println("Keep going? (y/n): ");
+            in = input.next(); // read in y or n to continue or stop
         }
-
-        for (int i = 0; i < 7; i++) 
-        {
-            int Test = input.nextInt(); // each assignment score
-            double TestSum = 0; // sum of scores
-            TestSum += Test; // add each score to sum
-            double TestAverage = TestSum / 7; // average of scores
-        }
-
-        int MidTerm = input.nextInt(); // midterm score
-        int FinalExam = input.nextInt(); // final exam score
-
-
 
         input.close(); // Close the scanner
 
