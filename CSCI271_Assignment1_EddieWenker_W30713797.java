@@ -40,6 +40,7 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
         String in = "y"; // variable to control while loop
         while (in.equals("y")) 
         {
+            System.out.println("Enter student name followed by grades: ");
             String StudentName = input.next(); // read in student name as first input
             //The start of the block of code meant for grade inputs
             //The first 7 inputs are assignment scores
@@ -70,7 +71,7 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
 
             //The next block of code is used to determine final grade based off of the grades read in above
             // if-else statement to determine which part of the piecewise function the FinalGrade will be calculated from, based of CombinedExamGrade
-            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // This is the grade from tests and exams combined (divided by 0.7 to get weighted average)
+            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // This is the grade from tests and exams combined (divided by 0.7 to get weighted average)! THIS WAS THE BUG
             if (CombinedExamGrade < 60) //If combined test and exam grade is less than 60, final grade is equal to combined exam grade - FAIL
             {
                 FinalGrade = CombinedExamGrade;
