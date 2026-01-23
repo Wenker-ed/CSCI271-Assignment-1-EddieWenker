@@ -40,6 +40,12 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
         String in = "y"; // variable to control while loop
         while (in.equals("y")) 
         {
+
+            //   The User must now how to input the data correctly.
+            //   Input goes as follows: Student Name (String), 7 Assignment Scores (int),
+            //   7 In-Class Test Scores (int), Midterm Score (int), Final Exam Score (int).
+            //   All inputs are space separated and after getting all inputs for one student, 
+            //   the program will output the final grade with 2 decimal precision.
             System.out.println("Enter student name followed by grades: ");
             String StudentName = input.next(); // read in student name as first input
             //The start of the block of code meant for grade inputs
