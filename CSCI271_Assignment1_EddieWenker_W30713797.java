@@ -7,9 +7,10 @@
 * Date: January 21, 2026
 *
 * Purpose
-* This program reads a list of scores from an input file, counts how many
-* scores there are in the list, and computes their sum and average.
-*
+* This program calculates the final grade of a student in CSCI 271.
+* The program reads in the name of the student and their grade scores 
+* and the final grade is calculated based on the grading scheme provided 
+* in the class syllabus.
 **************************************************************************
 * I declare and confirm the following:
 * - I have not discussed this program code with anyone other than my
@@ -27,10 +28,6 @@
 * Eddie Wenker
 * W30713797
 *************************************************************************/
-
-//DELETE THIS COMMENT BLOCK WHEN YOU FILL IN THE CODE
-//inputfile > program or something like this (redirection)
-//Don't need error checking
 
 import java.util.Scanner;
 
