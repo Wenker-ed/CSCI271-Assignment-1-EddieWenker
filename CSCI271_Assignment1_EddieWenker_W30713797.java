@@ -60,29 +60,29 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
                 int Test = input.nextInt(); // each assignment score
                 TestSum += Test; // add each score to sum
             }
-            double TestAverage = (double)TestSum / 7.0; // average of Test scores
+            double TestAverage = (double)TestSum / 7.0; // average of Test scores, converted to double for accuracy
             int MidTerm = input.nextInt(); // midterm score
             int FinalExam = input.nextInt(); // final exam score
 
-            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // average of exam scores (diveded by 0.7 to get weighted average)
-            System.out.println("Exams Average: " + CombinedExamGrade);
-            double Weight = (CombinedExamGrade - 60) / 20 * 0.3;
+            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // This is the grade from tests and exams combined (divided by 0.7 to get weighted average)
+        
             double FinalGrade = 0.0; // Used to calculate final grade
 
             if (CombinedExamGrade < 60)
             {
                 FinalGrade = CombinedExamGrade;
-                System.out.println("Final Grade: " + FinalGrade);
+                System.out.printf("Final Grade: %.2f%n", FinalGrade);
             }
             else if (CombinedExamGrade >= 60 && CombinedExamGrade < 80)
             {
-                FinalGrade = (1 - Weight) * CombinedExamGrade + Weight * AssignmentAverage;
-                System.out.println("Final Grade: " + FinalGrade);
+                double Weight = (CombinedExamGrade - 60) / 20 * 0.3; // Weight ranges from 0 to 0.3 and is based on performance on tests and exams
+                FinalGrade = (1 - Weight) * CombinedExamGrade + Weight * AssignmentAverage; // Final grade calculation with variable weight (1 - 0.7 for tests and exams)
+                System.out.printf("Final Grade: %.2f%n", FinalGrade);
             }
             else 
             {
-                FinalGrade = 0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage + 0.3 * AssignmentAverage;
-                System.out.println("Final Grade: " + FinalGrade);
+                FinalGrade = 0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage + 0.3 * AssignmentAverage; // Final grade calculation with regular weights 
+                System.out.printf("Final Grade: %.2f%n", FinalGrade);
             }
             
             System.out.println("Keep going? (y/n): ");
