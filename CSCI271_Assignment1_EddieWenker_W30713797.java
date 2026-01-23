@@ -38,22 +38,25 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
     public static void main(String[] args){
 
         Scanner input = new Scanner(System.in);
-        //THERE IS A BUG THAT YOU HAVE TO FIX
-        // Read integer A
         
-        String in = "y";
-        //While loop to continue reading until there are no more inputs
+        //While loop to continue reading until there are no more inputs or until user inputs anything other than 'y'
+        String in = "y"; // variable to control while loop
         while (in.equals("y")) 
         {
+            String StudentName = input.next(); // read in student name as first input
+            //The start of the block of code meant for grade inputs
+            //The first 7 inputs are assignment scores
+            //This for loop reads in each assignment score and adds it to the sum, the average is calculater after 7 scores are read
             int AssignmentSum = 0; // sum of scores
-            //We are reading in 7 assignments and calculating the average score
             for (int i = 0; i < 7; i++) 
             {
                 int Assignment = input.nextInt(); // each assignment score
                 AssignmentSum += Assignment; // add each score to sum
             }
-            double AssignmentAverage = (double)AssignmentSum / 7.0; // average of Assignment scores
+            double AssignmentAverage = (double)AssignmentSum / 7.0; // average of Assignment scores, converted to double for accuracy
 
+            //The next 7 inputs are in-class test scores
+            //This for loop reads in each test score and adds it to the sum, the average is calculater after 7 scores are read
             int TestSum = 0; // sum of scores
             for (int i = 0; i < 7; i++) 
             {
@@ -61,32 +64,36 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
                 TestSum += Test; // add each score to sum
             }
             double TestAverage = (double)TestSum / 7.0; // average of Test scores, converted to double for accuracy
-            int MidTerm = input.nextInt(); // midterm score
-            int FinalExam = input.nextInt(); // final exam score
 
-            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // This is the grade from tests and exams combined (divided by 0.7 to get weighted average)
+            int MidTerm = input.nextInt(); // midterm score read in as the second to last input
+            int FinalExam = input.nextInt(); // final exam score read in as the last input
         
             double FinalGrade = 0.0; // Used to calculate final grade
+            //end of grade reading block
 
-            if (CombinedExamGrade < 60)
+            //The next block of code is used to determine final grade based off of the grades read in above
+            // if-else statement to determine which part of the piecewise function the FinalGrade will be calculated from, based of CombinedExamGrade
+            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // This is the grade from tests and exams combined (divided by 0.7 to get weighted average)
+            if (CombinedExamGrade < 60) //If combined test and exam grade is less than 60, final grade is equal to combined exam grade - FAIL
             {
                 FinalGrade = CombinedExamGrade;
-                System.out.printf("Final Grade: %.2f%n", FinalGrade);
+                System.out.printf(StudentName + "Final Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
             }
-            else if (CombinedExamGrade >= 60 && CombinedExamGrade < 80)
+            else if (CombinedExamGrade >= 60 && CombinedExamGrade < 80) // Combined test and exam grade was between 60 and 80, extra weight calculation is added for this section only
             {
                 double Weight = (CombinedExamGrade - 60) / 20 * 0.3; // Weight ranges from 0 to 0.3 and is based on performance on tests and exams
                 FinalGrade = (1 - Weight) * CombinedExamGrade + Weight * AssignmentAverage; // Final grade calculation with variable weight (1 - 0.7 for tests and exams)
-                System.out.printf("Final Grade: %.2f%n", FinalGrade);
+                System.out.printf(StudentName + "Final Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
             }
-            else 
+            else // combined test and exam grade is 80 or more and all grades are included in final grade
             {
                 FinalGrade = 0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage + 0.3 * AssignmentAverage; // Final grade calculation with regular weights 
-                System.out.printf("Final Grade: %.2f%n", FinalGrade);
-            }
+                System.out.printf(StudentName + "Final Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
+            } // end of if-else
             
+            //added to keep loop going and end when user decides
             System.out.println("Keep going? (y/n): ");
-            in = input.next(); // read in y or n to continue or stop
+            in = input.next(); // read in y to continue or n to stop
         }
 
         input.close(); // Close the scanner
