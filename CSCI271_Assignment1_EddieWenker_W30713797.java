@@ -64,19 +64,19 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
             int MidTerm = input.nextInt(); // midterm score
             int FinalExam = input.nextInt(); // final exam score
 
-            double ExamsAverage = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // average of exam scores (diveded by 0.7 to get weighted average)
-            System.out.println("Exams Average: " + ExamsAverage);
-            double Weight = (ExamsAverage - 60) / 20 * 0.3;
+            double CombinedExamGrade = (0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage) / 0.7; // average of exam scores (diveded by 0.7 to get weighted average)
+            System.out.println("Exams Average: " + CombinedExamGrade);
+            double Weight = (CombinedExamGrade - 60) / 20 * 0.3;
             double FinalGrade; // Used to calculate final grade
 
-            if (ExamsAverage < 60)
+            if (CombinedExamGrade < 60)
             {
-                FinalGrade = ExamsAverage;
+                FinalGrade = CombinedExamGrade;
                 System.out.println("Final Grade: " + FinalGrade);
             }
-            else if (ExamsAverage >= 60 && ExamsAverage < 80)
+            else if (CombinedExamGrade >= 60 && CombinedExamGrade < 80)
             {
-                FinalGrade = (1 - Weight) * ExamsAverage + Weight * AssignmentAverage;
+                FinalGrade = (1 - Weight) * CombinedExamGrade + Weight * AssignmentAverage;
                 System.out.println("Final Grade: " + FinalGrade);
             }
             else 
