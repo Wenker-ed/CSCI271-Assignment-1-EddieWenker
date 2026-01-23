@@ -77,18 +77,18 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
             if (CombinedExamGrade < 60) //If combined test and exam grade is less than 60, final grade is equal to combined exam grade - FAIL
             {
                 FinalGrade = CombinedExamGrade;
-                System.out.printf(StudentName + ": Final Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
+                System.out.printf(StudentName + "\nFinal Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
             }
             else if (CombinedExamGrade >= 60 && CombinedExamGrade < 80) // Combined test and exam grade was between 60 and 80, extra weight calculation is added for this section only
             {
                 double Weight = (CombinedExamGrade - 60) / 20 * 0.3; // Weight ranges from 0 to 0.3 and is based on performance on tests and exams
                 FinalGrade = (1 - Weight) * CombinedExamGrade + Weight * AssignmentAverage; // Final grade calculation with variable weight (1 - 0.7 for tests and exams)
-                System.out.printf(StudentName + ": Final Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
+                System.out.printf(StudentName + "\nFinal Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
             }
             else // combined test and exam grade is 80 or more and all grades are included in final grade
             {
                 FinalGrade = 0.4 * FinalExam + 0.2 * (double)MidTerm + 0.1 * (double)TestAverage + 0.3 * AssignmentAverage; // Final grade calculation with regular weights 
-                System.out.printf(StudentName + ": Final Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
+                System.out.printf(StudentName + "\nFinal Grade: %.2f%n", FinalGrade); // Set precision to 2 decimal places
             } // end of if-else
             
             //added to keep loop going and end when user decides
