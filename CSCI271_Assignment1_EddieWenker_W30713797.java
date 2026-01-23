@@ -39,15 +39,28 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
 
         Scanner input = new Scanner(System.in);
         //THERE IS A BUG THAT YOU HAVE TO FIX
-        // Read integer N
-        int N = input.nextInt();
-        input.nextLine(); // Consume the remaining newline
-
-        // Read N lines of text
-        for (int i = 0; i < N; i++) {
-            String line = input.nextLine();
-            System.out.println(line);
+        // Read integer A
+        //We are reading in 7 assignments and calculating the average score
+        for (int i = 0; i < 7; i++) 
+        {
+            int Assignment = input.nextInt(); // each assignment score
+            double AssignmentSum = 0; // sum of scores
+            AssignmentSum += Assignment; // add each score to sum
+            double AssignmentAverage = AssignmentSum / 7; // average of scores
         }
+
+        for (int i = 0; i < 7; i++) 
+        {
+            int Test = input.nextInt(); // each assignment score
+            double TestSum = 0; // sum of scores
+            TestSum += Test; // add each score to sum
+            double TestAverage = TestSum / 7; // average of scores
+        }
+
+        int MidTerm = input.nextInt(); // midterm score
+        int FinalExam = input.nextInt(); // final exam score
+
+
 
         input.close(); // Close the scanner
 
