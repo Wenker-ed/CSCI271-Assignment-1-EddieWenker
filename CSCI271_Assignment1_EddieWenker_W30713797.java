@@ -62,12 +62,12 @@ public class CSCI271_Assignment1_EddieWenker_W30713797 {
             //The next 7 inputs are in-class test scores
             //This for loop reads in each test score and adds it to the sum, the average is calculater after 7 scores are read
             int TestSum = 0; // sum of scores
-            for (int i = 0; i < 7; i++) 
+            for (int i = 0; i < 6; i++) 
             {
                 int Test = input.nextInt(); // each assignment score
                 TestSum += Test; // add each score to sum
             }
-            double TestAverage = (double)TestSum / 7.0; // average of Test scores, converted to double for accuracy
+            double TestAverage = (double)TestSum / 6.0; // average of Test scores, converted to double for accuracy
 
             int MidTerm = input.nextInt(); // midterm score read in as the second to last input
             int FinalExam = input.nextInt(); // final exam score read in as the last input
