@@ -26,7 +26,6 @@
 * interfere with the normal operation of the supplied grading code.
 *
 * Eddie Wenker
-* W30713797
 *************************************************************************/
 
 import java.util.Scanner;
